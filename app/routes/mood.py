@@ -11,3 +11,6 @@ def get_mood(data: MoodRequest, token: str = Depends(verify_token)):
         return detect_mood(data.text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+@router.get("/ping")
+def ping():
+    return {"message": "Mood Detection API is alive 🚀"}
