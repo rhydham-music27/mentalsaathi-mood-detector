@@ -1,7 +1,7 @@
 from transformers import pipeline
 
 # Load model once on startup
-classifier = pipeline("text-classification", model="j-hartmann/emotion-english-distilroberta-base", return_all_scores=True)
+classifier = pipeline("sentiment-analysis")  # default is `distilbert`, much smaller
 
 def detect_mood(text: str) -> dict:
     result = classifier(text)[0]
